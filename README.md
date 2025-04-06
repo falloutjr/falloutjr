@@ -1,17 +1,17 @@
-# 👋 Welcome to My GitHub Profile!
+# 👨‍💻 Welcome to @falloutjr
 
 ## About Me
-- 🌟 Passionate about programming and gaming.
-- 🏅 Former Tidewater DeMolay PMC (twice!).
-- 🎮 Love playing Minecraft, Terraria, and more.
-- 💻 Proficient in HTML, CSS, JavaScript, and Java.
+- 🌐 Web Developer with expertise in **HTML, CSS, JavaScript, and Java**.
+- 🎮 Passionate about **game development** and interactive experiences.
+- 🏅 Twice elected **PMC of Tidewater DeMolay**, demonstrating leadership and commitment.
 
-## What You'll Eventually Find Here
-- 🚀 Web development projects.
-- 🎨 Creative coding experiments.
-- 🔧 Open-source contributions.
-- 📂 Personal gaming-related tools & scripts.
+## Projects & Contributions
+- 🚀 **Front-end and full-stack development** projects.
+- 🛠 Open-source contributions and coding experiments.
+- 🎨 Creative coding for web applications and gaming tools.
 
-## Let's Connect!
-- 💬 Feel free to reach out or contribute to my projects!
----
+## Get in Touch
+- 📧 Feel free to reach out to discuss **collaborations and projects**.
+- 🔗 Connect with me on **[Your LinkedIn, Portfolio, or Socials]**.
+
+Thanks for visiting—let's **build something great together**! 🚀
