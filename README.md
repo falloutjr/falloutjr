@@ -10,7 +10,7 @@ I have a deep interest in **game development**, focusing on creating immersive a
 In addition to my technical expertise, I have honed my leadership skills as **PMC of Tidewater DeMolay**, serving twice in this role. Leading and mentoring peers has taught me valuable lessons in organization, teamwork, and community building.
 
 ## 🛠 Projects & Contributions
-Here, you'll find a variety of projects that showcase my skills and creativity:
+Here, you'll eventually find a variety of projects that showcase my skills and creativity:
 - **Front-end and full-stack web development**, incorporating responsive designs and seamless user experiences.
 - **Open-source contributions**, collaborating with the developer community to create impactful tools and improvements.
 - **Creative coding**, building interactive web applications and game-related utilities.
