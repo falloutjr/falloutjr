@@ -1,22 +1,38 @@
-# 💻 Welcome to My GitHub Profile
+# 💻 FalloutJr – Programmer | Java • C++ • Web
+🎮 Currently working on an **Unreal Engine story-driven game** (Top secret – not ready to reveal)
+
+---
+
 ## 👨‍💻 About Me
+I’m a programmer passionate about **web development** and **game development**.  
+I enjoy crafting interactive experiences, experimenting with technology, and building tools and systems that push creative boundaries.
 
-Hello! I’m a programmer with experience in Java, C++, HTML, CSS, and JavaScript. I enjoy building interactive experiences, experimenting with technology, and pushing creative boundaries in both web development and games.
+---
 
-## 🎮 Game Development Focus
+## 🛠 Current Projects
+- **Unreal Engine Game** – immersive, story-driven gameplay in development. Details coming soon.  
+- **Web Tools & Utilities** – interactive web apps using HTML, CSS, JavaScript, and Java.  
+- **Creative Coding Experiments** – prototypes in C++ and web tech exploring gameplay mechanics and UI ideas.
 
-I’m currently developing a game in Unreal Engine—an ambitious project that’s not ready to be revealed yet. My focus is on creating immersive worlds, engaging mechanics, and polished user experiences.
+🌟 More projects will appear here as I continue development and experimentation.
 
-## 🛠 Skills & Projects
+---
 
-On this profile, you’ll find work that reflects my skills and experimentation:
+## 🧰 Skills
+**Languages:** Java • C++ • JavaScript • HTML • CSS  
+**Game Dev:** Unreal Engine, Blueprint, Gameplay Systems  
+**Tools & Libraries:** Git, GitHub, VS Code, Node.js, Bootstrap  
 
-Programming & software development: Full-stack web projects, interactive applications, and performance-focused coding.
+---
 
-Game development tools: Unreal Engine projects, gameplay systems, and experimental prototypes.
+## 📊 GitHub Stats
 
-Creative coding: Interactive utilities, small demos, and explorations in C++ and web technologies.
 
-## 📬 Connect & Collaborate
+---
 
-I’m always open to ideas, collaboration, and sharing knowledge. If you’re interested in game dev, programming, or creative tech projects, let’s connect!
+## 📬 Connect with Me
+I’m open to discussion, collaboration, and idea sharing. Reach out via GitHub or one of my projects!
+
+---
+
+> Thank you for visiting my profile — let’s **build, innovate, and create together**! 🚀
