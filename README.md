@@ -1,20 +1,22 @@
 # 💻 Welcome to My GitHub Profile
-
 ## 👨‍💻 About Me
-Greetings! I'm a **Web Developer** with a strong foundation in **HTML, CSS, JavaScript, and Java**. My passion for technology extends beyond coding—I love exploring innovative solutions and pushing the boundaries of interactive design.
 
-### 🎮 A Passion for Game Development
-I have a deep interest in **game development**, focusing on creating immersive and engaging experiences. Whether it's designing mechanics, enhancing UI/UX, or optimizing performance, I am always eager to experiment and refine digital experiences.
+Hello! I’m a programmer with experience in Java, C++, HTML, CSS, and JavaScript. I enjoy building interactive experiences, experimenting with technology, and pushing creative boundaries in both web development and games.
 
-## 🛠 Projects & Contributions
-Here, you'll eventually find a variety of projects that showcase my skills and creativity:
-- **Front-end and full-stack web development**, incorporating responsive designs and seamless user experiences.
-- **Open-source contributions**, collaborating with the developer community to create impactful tools and improvements.
-- **Creative coding**, building interactive web applications and game-related utilities.
+## 🎮 Game Development Focus
 
-## 📬 Let's Connect!
-I’m always excited to explore new opportunities, collaborate on projects, and share knowledge. If you're interested in discussing ideas, coding, or game development, feel free to reach out!
+I’m currently developing a game in Unreal Engine—an ambitious project that’s not ready to be revealed yet. My focus is on creating immersive worlds, engaging mechanics, and polished user experiences.
 
-- **📧 Contact me via one of my projects**
+## 🛠 Skills & Projects
 
-Thank you for visiting my profile—let’s **build, innovate, and create together**! 🚀
+On this profile, you’ll find work that reflects my skills and experimentation:
+
+Programming & software development: Full-stack web projects, interactive applications, and performance-focused coding.
+
+Game development tools: Unreal Engine projects, gameplay systems, and experimental prototypes.
+
+Creative coding: Interactive utilities, small demos, and explorations in C++ and web technologies.
+
+## 📬 Connect & Collaborate
+
+I’m always open to ideas, collaboration, and sharing knowledge. If you’re interested in game dev, programming, or creative tech projects, let’s connect!
