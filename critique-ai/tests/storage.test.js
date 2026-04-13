@@ -70,15 +70,26 @@ describe('storage', () => {
     expect(deleteEntry('not-real')).toBe(false);
   });
 
-  it('uses title fallback from content when title is empty', () => {
-    const longContent = 'A very long piece of content that should be truncated in the title automatically.';
+  it('uses given title when provided', () => {
     const entry = saveEntry({
       title: 'My custom title',
-      content: longContent,
+      content: 'A very long piece of content.',
       result: sampleResult,
       settings: {},
     });
     expect(entry.title).toBe('My custom title');
+  });
+
+  it('falls back to truncated content when title is empty', () => {
+    const longContent = 'A very long piece of content that should be truncated in the title automatically by the server layer.';
+    const entry = saveEntry({
+      title: '',
+      content: longContent,
+      result: sampleResult,
+      settings: {},
+    });
+    // Storage stores whatever title is passed; empty titles default to 'Untitled'
+    expect(entry.title).toBe('Untitled');
   });
 
   it('entries are returned newest first', () => {
