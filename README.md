@@ -10,14 +10,14 @@ Software developer specializing in **web development** and **game systems engine
 ---
 
 ## 🌐 Portfolio
-🔗 **Portfolio Website:** *Coming Soon*  
-*(Planned deployment via GitHub Pages / Vercel / Netlify)*
+🔗 **Portfolio Website:** [https://falloutjr.github.io/falloutjr](https://falloutjr.github.io/falloutjr)
 
-Planned features:
-- Featured projects with demos or gameplay clips  
-- Technical breakdowns and system design insights  
-- GitHub repository links and code samples  
-- Development logs and progress updates  
+Features:
+- Featured projects with descriptions and tech stack  
+- Technical skills overview  
+- Currently learning section  
+- Contact &amp; collaboration info  
+- Responsive dark-theme design  
 
 ---
 

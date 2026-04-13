@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FalloutJr – Software Developer specializing in game development and web technologies." />
+  <title>FalloutJr | Software Developer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">&lt;FalloutJr /&gt;</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#learning" class="nav-link">Learning</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <a href="https://github.com/falloutjr" class="nav-btn" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, World. I'm</p>
+      <h1 class="hero-name">FalloutJr</h1>
+      <p class="hero-title">
+        <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+      </p>
+      <p class="hero-description">
+        Software developer specializing in <strong>game systems engineering</strong> and
+        <strong>web development</strong>. Building immersive experiences and scalable tools
+        with clean architecture.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// about</span>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a software developer with a passion for crafting high-quality systems and
+            immersive digital experiences. My work spans <strong>game development</strong>
+            with Unreal Engine and <strong>full-stack web development</strong> — bridging
+            the gap between performance-critical game systems and modern web technologies.
+          </p>
+          <p>
+            I focus on <strong>clean architecture</strong>, <strong>performance</strong>,
+            and <strong>usability</strong> — whether it's designing gameplay mechanics in C++
+            or building responsive web tools with JavaScript.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-value">5+</span>
+              <span class="stat-label">Languages</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">3+</span>
+              <span class="stat-label">Project Areas</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">∞</span>
+              <span class="stat-label">Curiosity</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="card-inner">
+            <div class="card-line"><span class="key">name</span><span class="sep">:</span> <span class="str">"FalloutJr"</span></div>
+            <div class="card-line"><span class="key">role</span><span class="sep">:</span> <span class="str">"Software Developer"</span></div>
+            <div class="card-line"><span class="key">focus</span><span class="sep">:</span> <span class="arr">["Game Dev", "Web Dev"]</span></div>
+            <div class="card-line"><span class="key">engine</span><span class="sep">:</span> <span class="str">"Unreal Engine"</span></div>
+            <div class="card-line"><span class="key">languages</span><span class="sep">:</span> <span class="arr">["Java", "C++", "JS"]</span></div>
+            <div class="card-line"><span class="key">status</span><span class="sep">:</span> <span class="bool">open_to_collab</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// projects</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Unreal Engine Game -->
+        <article class="project-card featured">
+          <div class="project-icon">🎮</div>
+          <div class="project-badge">Featured</div>
+          <h3 class="project-title">Unreal Engine Game</h3>
+          <p class="project-description">
+            Developing a narrative-driven game with immersive environments, complex gameplay
+            systems, and interactive storytelling. Built with Unreal Engine and C++ for
+            performance-critical mechanics.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">C++</span>
+            <span class="tag">Blueprints</span>
+            <span class="tag">Game Systems</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-status in-progress">🔨 In Development</span>
+            <a href="https://github.com/falloutjr" class="project-link" target="_blank" rel="noopener noreferrer">
+              View on GitHub →
+            </a>
+          </div>
+        </article>
+
+        <!-- Web Tools & Utilities -->
+        <article class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3 class="project-title">Web Tools &amp; Utilities</h3>
+          <p class="project-description">
+            Building responsive, performance-focused web applications using modern JavaScript
+            and backend integrations. Emphasis on clean UI and scalable architecture.
+          </p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-status active">✅ Active</span>
+            <a href="https://github.com/falloutjr?tab=repositories" class="project-link" target="_blank" rel="noopener noreferrer">
+              Browse Repos →
+            </a>
+          </div>
+        </article>
+
+        <!-- Creative Coding -->
+        <article class="project-card">
+          <div class="project-icon">🧪</div>
+          <h3 class="project-title">Creative Coding Experiments</h3>
+          <p class="project-description">
+            Prototyping gameplay mechanics, UI systems, and technical concepts.
+            Exploring the intersection of game programming and web technologies
+            through experimental builds.
+          </p>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">UI Systems</span>
+          </div>
+          <div class="project-footer">
+            <span class="project-status ongoing">🔬 Ongoing</span>
+            <a href="https://github.com/falloutjr?tab=repositories" class="project-link" target="_blank" rel="noopener noreferrer">
+              Browse Repos →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// skills</span>
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">⌨️</span> Languages
+          </h3>
+          <div class="skill-list">
+            <div class="skill-item" data-level="90">
+              <span class="skill-name">Java</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item" data-level="80">
+              <span class="skill-name">C++</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item" data-level="85">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item" data-level="90">
+              <span class="skill-name">HTML</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item" data-level="85">
+              <span class="skill-name">CSS</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">🎮</span> Game Development
+          </h3>
+          <div class="skill-pills">
+            <span class="pill">Unreal Engine</span>
+            <span class="pill">Blueprints</span>
+            <span class="pill">Gameplay Systems</span>
+            <span class="pill">Level Design</span>
+            <span class="pill">C++ Game Dev</span>
+            <span class="pill">UI/UX (In-Game)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">
+            <span class="skill-group-icon">🛠</span> Tools &amp; Technologies
+          </h3>
+          <div class="skill-pills">
+            <span class="pill">Git</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">Bootstrap</span>
+            <span class="pill">REST APIs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Currently Learning Section -->
+  <section class="section section-alt" id="learning">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// learning</span>
+        <h2 class="section-title">Currently Learning</h2>
+      </div>
+      <div class="learning-grid">
+        <div class="learning-card">
+          <div class="learning-icon">🧠</div>
+          <h3>Advanced C++ for Game Dev</h3>
+          <p>Deep diving into memory management, optimization techniques, and performance-critical programming patterns for game systems.</p>
+        </div>
+        <div class="learning-card">
+          <div class="learning-icon">⚙️</div>
+          <h3>Unreal Engine C++ Integration</h3>
+          <p>Mastering the blend of Unreal C++ and Blueprints for robust, maintainable game architecture and gameplay feature development.</p>
+        </div>
+        <div class="learning-card">
+          <div class="learning-icon">🖥️</div>
+          <h3>Full-Stack Development</h3>
+          <p>Expanding backend skills with Node.js, API design, and server-side architecture to complement my frontend expertise.</p>
+        </div>
+        <div class="learning-card">
+          <div class="learning-icon">🎨</div>
+          <h3>UI/UX Engineering</h3>
+          <p>Studying design principles and engineering practices for both web interfaces and in-game UI systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// contact</span>
+        <h2 class="section-title">Contact &amp; Collaboration</h2>
+      </div>
+      <div class="contact-content">
+        <p class="contact-intro">
+          Open to collaboration, technical discussions, and innovative development opportunities.
+          Whether you want to build something together or just talk tech — feel free to reach out.
+        </p>
+        <div class="contact-cards">
+          <a href="https://github.com/falloutjr" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" aria-hidden="true">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <div class="contact-card-text">
+              <strong>GitHub</strong>
+              <span>@falloutjr</span>
+            </div>
+          </a>
+          <a href="https://github.com/falloutjr?tab=repositories" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card-icon">📁</div>
+            <div class="contact-card-text">
+              <strong>Repositories</strong>
+              <span>Browse my work</span>
+            </div>
+          </a>
+        </div>
+        <blockquote class="contact-quote">
+          "Focused on building high-quality systems, immersive experiences, and innovative solutions."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">&lt;FalloutJr /&gt;</span>
+        <p class="footer-text">Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
+        <a href="https://github.com/falloutjr/falloutjr" class="footer-link" target="_blank" rel="noopener noreferrer">
+          View Source
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
