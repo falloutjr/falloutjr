@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Critique AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">🕐 History</h2>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Close sidebar">✕</button>
+      </div>
+      <ul class="history-list" id="historyList">
+        <li class="history-empty">No critiques yet.</li>
+      </ul>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="main">
+
+      <!-- Header -->
+      <header class="header">
+        <button class="btn-icon" id="openSidebar" aria-label="Open history">☰</button>
+        <div class="header-brand">
+          <span class="brand-icon">🔍</span>
+          <h1 class="brand-name">Critique AI</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-ghost" id="newCritiqueBtn">+ New</button>
+        </div>
+      </header>
+
+      <!-- Input Section -->
+      <section class="section" id="inputSection">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Your Content</h2>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="titleInput">Title <span class="optional">(optional)</span></label>
+            <input
+              class="form-input"
+              id="titleInput"
+              type="text"
+              placeholder="e.g. Chapter 1 draft, Login page design…"
+              maxlength="120"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contentInput">
+              Content <span class="char-count" id="charCount">0 / 10,000</span>
+            </label>
+            <textarea
+              class="form-textarea"
+              id="contentInput"
+              placeholder="Paste or type your text, code, or description here…"
+              rows="10"
+              maxlength="10000"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="card settings-card">
+          <div class="card-header">
+            <h2 class="card-title">Settings</h2>
+          </div>
+          <div class="settings-grid">
+
+            <div class="form-group">
+              <label class="form-label" for="critiqueType">Critique Type</label>
+              <select class="form-select" id="critiqueType">
+                <option value="general">General</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="tone">Tone</label>
+              <select class="form-select" id="tone">
+                <option value="balanced">Balanced</option>
+                <option value="constructive">Constructive</option>
+                <option value="strict">Strict</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="detailLevel">Detail Level</label>
+              <select class="form-select" id="detailLevel">
+                <option value="standard">Standard</option>
+                <option value="brief">Brief</option>
+                <option value="detailed">Detailed</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="extraContext">
+              Extra Context <span class="optional">(optional — focus areas, goals, constraints)</span>
+            </label>
+            <textarea
+              class="form-textarea"
+              id="extraContext"
+              placeholder="e.g. This is for a high school audience. Focus on the argument structure."
+              rows="2"
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary btn-lg" id="critiqueBtn">
+              <span id="critiqueBtnText">✦ Run Critique</span>
+              <span id="critiqueBtnSpinner" class="spinner hidden"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Error Banner -->
+      <div class="error-banner hidden" id="errorBanner" role="alert">
+        <span id="errorMessage"></span>
+        <button class="error-dismiss" id="errorDismiss" aria-label="Dismiss">✕</button>
+      </div>
+
+      <!-- Results Section -->
+      <section class="section hidden" id="resultsSection">
+        <div class="card results-card">
+
+          <div class="results-header">
+            <h2 class="card-title" id="resultsTitle">Critique Results</h2>
+            <div class="results-meta" id="resultsMeta"></div>
+            <div class="results-actions">
+              <button class="btn btn-ghost btn-sm" id="exportBtn">⬇ Export</button>
+            </div>
+          </div>
+
+          <!-- Score Hero -->
+          <div class="score-hero">
+            <div class="score-circle" id="scoreCircle">
+              <span class="score-value" id="scoreValue">–</span>
+              <span class="score-label">/ 10</span>
+            </div>
+            <p class="score-summary" id="scoreSummary"></p>
+          </div>
+
+          <!-- Dimension Scores -->
+          <div class="dimension-section">
+            <h3 class="section-subtitle">Dimension Scores</h3>
+            <div class="dimension-bars" id="dimensionBars"></div>
+          </div>
+
+          <!-- Feedback Columns -->
+          <div class="feedback-grid">
+            <div class="feedback-col feedback-strengths">
+              <h3 class="feedback-col-title">✅ Strengths</h3>
+              <ul class="feedback-list" id="strengthsList"></ul>
+            </div>
+            <div class="feedback-col feedback-weaknesses">
+              <h3 class="feedback-col-title">⚠️ Weaknesses</h3>
+              <ul class="feedback-list" id="weaknessesList"></ul>
+            </div>
+          </div>
+
+          <!-- Suggestions -->
+          <div class="suggestions-section">
+            <h3 class="section-subtitle">💡 Suggestions</h3>
+            <ol class="suggestions-list" id="suggestionsList"></ol>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
