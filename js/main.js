@@ -106,7 +106,7 @@ revealEls.forEach(el => el.classList.add('reveal'));
 
 const revealObserver = new IntersectionObserver(
   entries => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         // stagger children within same parent
         const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
