@@ -12,13 +12,6 @@ Software developer specializing in **web development** and **game systems engine
 ## 🌐 Portfolio
 🔗 **Portfolio Website:** [https://falloutjr.github.io/falloutjr](https://falloutjr.github.io/falloutjr)
 
-Features:
-- Featured projects with descriptions and tech stack  
-- Technical skills overview  
-- Currently learning section  
-- Contact &amp; collaboration info  
-- Responsive dark-theme design  
-
 ---
 
 ## 🛠 Projects
