@@ -1,79 +1,64 @@
-FalloutJr
+# 💻 FalloutJr – Software Developer | Java • C++ • Web Technologies
 
-Student Developer · Full-Stack Development · Game Development
-
-I build web applications, mobile software, backend systems, and game projects.
-
-Currently focused on TypeScript, React, Node.js, Unreal Engine, and C++.
+🎮 Currently developing a **story-driven game in Unreal Engine** *(details forthcoming)*
 
 ---
 
-Projects
-
-Legends of Armethidia
-
-Story-driven fantasy game project built around immersive environments, gameplay systems, worldbuilding, and interactive storytelling.
-
-"Unreal Engine" "C++" "Blueprints"
-
-MYG
-
-Private full-stack mobile platform with group communication, events, social features, moderation, authentication, and administration tools.
-
-"TypeScript" "React Native" "Expo" "Node.js" "Express" "PostgreSQL"
-
-Tidewater DeMolay
-
-Web projects for Tidewater DeMolay, including organizational tools and a modern public-facing website.
-
-"Next.js" "React" "TypeScript" "Prisma" "Tailwind CSS"
+## 👨‍💻 Professional Summary
+Software developer specializing in **web development** and **game systems engineering**. Experienced in designing interactive applications, scalable tools, and gameplay mechanics. Strong focus on performance, usability, and clean architecture across both frontend and game development environments.
 
 ---
 
-Tech
-
-Languages
-
-"TypeScript" · "JavaScript" · "C++" · "Java" · "HTML" · "CSS"
-
-Frontend
-
-"React" · "Next.js" · "React Native" · "Expo" · "Tailwind CSS"
-
-Backend
-
-"Node.js" · "Express" · "PostgreSQL" · "Prisma"
-
-Game Development
-
-"Unreal Engine" · "Blueprints"
-
-Tools
-
-"Git" · "GitHub" · "Docker" · "VS Code"
+## 🌐 Portfolio
+🔗 **Portfolio Website:** [https://falloutjr.github.io/falloutjr](https://falloutjr.github.io/falloutjr)
 
 ---
 
-Currently Working On
+## 🛠 Projects
+### 🎮 Unreal Engine Game
+Developing a narrative-driven game with immersive environments, gameplay systems, and interactive storytelling.  
+*(Details to be released at a later stage.)*
 
-- Full-stack application development
-- React Native mobile development
-- Backend architecture and APIs
-- Unreal Engine and C++
-- Authentication and database systems
-- UI/UX design
-- AI-assisted development workflows
+### 🌐 Web Tools & Utilities
+Building responsive and performance-focused web applications using modern JavaScript and backend integrations.
 
----
-
-GitHub
-
-"GitHub Stats" (https://github-readme-stats.vercel.app/api?username=FalloutJr&show_icons=true&theme=github_dark&hide_border=true)
-
-"Top Languages" (https://github-readme-stats.vercel.app/api/top-langs/?username=FalloutJr&layout=compact&theme=github_dark&hide_border=true)
+### 🧪 Creative Coding Experiments
+Prototyping gameplay mechanics, UI systems, and technical concepts using **C++** and web technologies.
 
 ---
 
-Links
+## 🧰 Technical Skills
+**Languages:**  
+`Java` • `C++` • `JavaScript` • `HTML` • `CSS`  
 
-"Portfolio" (https://falloutjr.github.io/falloutjr) · "Repositories" (https://github.com/FalloutJr?tab=repositories)
+**Game Development:**  
+`Unreal Engine` • `Blueprints` • `Gameplay Systems`  
+
+**Tools & Technologies:**  
+`Git` • `GitHub` • `VS Code` • `Node.js` • `Bootstrap`  
+
+---
+
+## 📚 Currently Learning
+- Advanced **C++ for Game Development** (memory management, optimization)
+- **Unreal Engine C++ integration** with Blueprints
+- **Full-stack development** (Node.js, APIs, backend systems)
+- **UI/UX engineering** for web and in-game interfaces
+
+---
+
+## 📊 GitHub Stats
+<!-- You can replace 'FalloutJr' with your exact username if different -->
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=FalloutJr&show_icons=true&theme=tokyonight)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=FalloutJr&layout=compact&theme=tokyonight)
+
+---
+
+## 📬 Contact & Collaboration
+Open to collaboration, technical discussions, and innovative development opportunities.  
+Feel free to connect through GitHub or explore my repositories.
+
+---
+
+> *Focused on building high-quality systems, immersive experiences, and innovative solutions.*
