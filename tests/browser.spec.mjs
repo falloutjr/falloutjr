@@ -45,7 +45,7 @@ test('selected work filters, project dialog, focus restoration, and navigation w
   await page.getByRole('button', { name: 'Game development', exact: true }).click();
   await expect(page.locator('.work-card:visible')).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Game development', exact: true })).toHaveAttribute('aria-pressed', 'true');
-  const trigger = page.getByRole('button', { name: 'Explore Unreal Engine game', exact: true });
+  const trigger = page.getByRole('button', { name: 'Explore Unreal Engine game — In development', exact: true });
   await trigger.click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page.getByRole('dialog').getByRole('heading', { name: 'Unreal Engine game' })).toBeVisible();
