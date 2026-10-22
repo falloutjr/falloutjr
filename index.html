@@ -3,347 +3,400 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="FalloutJr – Software Developer specializing in game development and web technologies." />
-  <title>FalloutJr | Software Developer</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="FalloutJr portfolio — software developer focused on Unreal Engine game systems, C++, JavaScript, and creative web development." />
+  <title>FalloutJr | Signal / Forge Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">&lt;FalloutJr /&gt;</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#learning" class="nav-link">Learning</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li>
-          <a href="https://github.com/falloutjr" class="nav-btn" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-greeting">Hello, World. I'm</p>
-      <h1 class="hero-name">FalloutJr</h1>
-      <p class="hero-title">
-        <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
-      </p>
-      <p class="hero-description">
-        Software developer specializing in <strong>game systems engineering</strong> and
-        <strong>web development</strong>. Building immersive experiences and scalable tools
-        with clean architecture.
-      </p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="container nav-wrap">
+        <a href="#home" class="nav-logo" aria-label="Go to home">&lt;FalloutJr /&gt;</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
+          <li><a href="#timeline" class="nav-link">Milestones</a></li>
+          <li><a href="#services" class="nav-link">Collaborate</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <a href="https://github.com/falloutjr" class="nav-cta" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </li>
+        </ul>
       </div>
-    </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// about</span>
-        <h2 class="section-title">Professional Summary</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I'm a software developer with a passion for crafting high-quality systems and
-            immersive digital experiences. My work spans <strong>game development</strong>
-            with Unreal Engine and <strong>full-stack web development</strong> — bridging
-            the gap between performance-critical game systems and modern web technologies.
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="home-title">
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Signal / Forge</p>
+          <h1 id="home-title">Engineering immersive systems with game-grade precision.</h1>
+          <p class="hero-lead">
+            I’m <strong>FalloutJr</strong>, a software developer focused on <strong>Unreal Engine game systems</strong>,
+            <strong>C++</strong>, and <strong>JavaScript/web development</strong>. I build performant tools, polished interfaces,
+            and creative coding experiments that bridge gameplay and product UX.
           </p>
-          <p>
-            I focus on <strong>clean architecture</strong>, <strong>performance</strong>,
-            and <strong>usability</strong> — whether it's designing gameplay mechanics in C++
-            or building responsive web tools with JavaScript.
-          </p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-value">5+</span>
-              <span class="stat-label">Languages</span>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">Explore featured work</a>
+            <a href="#contact" class="btn btn-ghost">Start a collaboration</a>
+          </div>
+          <div class="hero-metrics" aria-label="Portfolio highlights">
+            <div class="metric">
+              <span class="metric-value counter" data-target="12" data-suffix="+">0</span>
+              <span class="metric-label">Systems & prototypes</span>
             </div>
-            <div class="stat">
-              <span class="stat-value">3+</span>
-              <span class="stat-label">Project Areas</span>
+            <div class="metric">
+              <span class="metric-value counter" data-target="5" data-suffix="+">0</span>
+              <span class="metric-label">Primary languages</span>
             </div>
-            <div class="stat">
-              <span class="stat-value">∞</span>
-              <span class="stat-label">Curiosity</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-card">
-          <div class="card-inner">
-            <div class="card-line"><span class="key">name</span><span class="sep">:</span> <span class="str">"FalloutJr"</span></div>
-            <div class="card-line"><span class="key">role</span><span class="sep">:</span> <span class="str">"Software Developer"</span></div>
-            <div class="card-line"><span class="key">focus</span><span class="sep">:</span> <span class="arr">["Game Dev", "Web Dev"]</span></div>
-            <div class="card-line"><span class="key">engine</span><span class="sep">:</span> <span class="str">"Unreal Engine"</span></div>
-            <div class="card-line"><span class="key">languages</span><span class="sep">:</span> <span class="arr">["Java", "C++", "JS"]</span></div>
-            <div class="card-line"><span class="key">status</span><span class="sep">:</span> <span class="bool">open_to_collab</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="section section-alt" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// projects</span>
-        <h2 class="section-title">Featured Projects</h2>
-      </div>
-      <div class="projects-grid">
-
-        <!-- Unreal Engine Game -->
-        <article class="project-card featured">
-          <div class="project-icon">🎮</div>
-          <div class="project-badge">Featured</div>
-          <h3 class="project-title">Unreal Engine Game</h3>
-          <p class="project-description">
-            Developing a narrative-driven game with immersive environments, complex gameplay
-            systems, and interactive storytelling. Built with Unreal Engine and C++ for
-            performance-critical mechanics.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Unreal Engine</span>
-            <span class="tag">C++</span>
-            <span class="tag">Blueprints</span>
-            <span class="tag">Game Systems</span>
-          </div>
-          <div class="project-footer">
-            <span class="project-status in-progress">🔨 In Development</span>
-            <a href="https://github.com/falloutjr" class="project-link" target="_blank" rel="noopener noreferrer">
-              View on GitHub →
-            </a>
-          </div>
-        </article>
-
-        <!-- Web Tools & Utilities -->
-        <article class="project-card">
-          <div class="project-icon">🌐</div>
-          <h3 class="project-title">Web Tools &amp; Utilities</h3>
-          <p class="project-description">
-            Building responsive, performance-focused web applications using modern JavaScript
-            and backend integrations. Emphasis on clean UI and scalable architecture.
-          </p>
-          <div class="project-tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-          </div>
-          <div class="project-footer">
-            <span class="project-status active">✅ Active</span>
-            <a href="https://github.com/falloutjr?tab=repositories" class="project-link" target="_blank" rel="noopener noreferrer">
-              Browse Repos →
-            </a>
-          </div>
-        </article>
-
-        <!-- Creative Coding -->
-        <article class="project-card">
-          <div class="project-icon">🧪</div>
-          <h3 class="project-title">Creative Coding Experiments</h3>
-          <p class="project-description">
-            Prototyping gameplay mechanics, UI systems, and technical concepts.
-            Exploring the intersection of game programming and web technologies
-            through experimental builds.
-          </p>
-          <div class="project-tags">
-            <span class="tag">C++</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">UI Systems</span>
-          </div>
-          <div class="project-footer">
-            <span class="project-status ongoing">🔬 Ongoing</span>
-            <a href="https://github.com/falloutjr?tab=repositories" class="project-link" target="_blank" rel="noopener noreferrer">
-              Browse Repos →
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// skills</span>
-        <h2 class="section-title">Technical Skills</h2>
-      </div>
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <h3 class="skill-group-title">
-            <span class="skill-group-icon">⌨️</span> Languages
-          </h3>
-          <div class="skill-list">
-            <div class="skill-item" data-level="90">
-              <span class="skill-name">Java</span>
-              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-            </div>
-            <div class="skill-item" data-level="80">
-              <span class="skill-name">C++</span>
-              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-            </div>
-            <div class="skill-item" data-level="85">
-              <span class="skill-name">JavaScript</span>
-              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-item" data-level="90">
-              <span class="skill-name">HTML</span>
-              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-            </div>
-            <div class="skill-item" data-level="85">
-              <span class="skill-name">CSS</span>
-              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            <div class="metric">
+              <span class="metric-value counter" data-target="100" data-suffix="%">0</span>
+              <span class="metric-label">Learning momentum</span>
             </div>
           </div>
         </div>
 
-        <div class="skill-group">
-          <h3 class="skill-group-title">
-            <span class="skill-group-icon">🎮</span> Game Development
-          </h3>
-          <div class="skill-pills">
-            <span class="pill">Unreal Engine</span>
-            <span class="pill">Blueprints</span>
-            <span class="pill">Gameplay Systems</span>
-            <span class="pill">Level Design</span>
-            <span class="pill">C++ Game Dev</span>
-            <span class="pill">UI/UX (In-Game)</span>
+        <figure class="hero-visual reveal" aria-label="Abstract systems diagram">
+          <svg viewBox="0 0 680 520" role="img" aria-labelledby="hero-visual-title hero-visual-desc">
+            <title id="hero-visual-title">Signal and forge systems map</title>
+            <desc id="hero-visual-desc">An abstract network of connected modules representing game systems and web architecture.</desc>
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f3b63f" />
+                <stop offset="100%" stop-color="#6f7eff" />
+              </linearGradient>
+              <radialGradient id="nodeGlow" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#f3b63f" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#f3b63f" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect x="20" y="20" width="640" height="480" rx="24" class="panel-bg" />
+            <g class="grid-lines" aria-hidden="true">
+              <path d="M50 120H630M50 220H630M50 320H630M50 420H630" />
+              <path d="M150 50V470M280 50V470M410 50V470M540 50V470" />
+            </g>
+            <g class="links">
+              <path d="M120 120C210 80 300 120 370 170" />
+              <path d="M370 170C450 230 500 210 560 160" />
+              <path d="M120 360C220 300 290 340 360 380" />
+              <path d="M360 380C430 420 520 400 580 350" />
+              <path d="M190 260C260 260 340 260 470 280" />
+            </g>
+            <g class="nodes">
+              <circle cx="120" cy="120" r="16" /><circle cx="370" cy="170" r="20" />
+              <circle cx="560" cy="160" r="14" /><circle cx="120" cy="360" r="16" />
+              <circle cx="360" cy="380" r="20" /><circle cx="580" cy="350" r="16" />
+              <circle cx="470" cy="280" r="12" />
+            </g>
+            <circle cx="370" cy="170" r="72" fill="url(#nodeGlow)" />
+          </svg>
+          <figcaption>From gameplay mechanics to polished product interfaces.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Builder mindset, systems-first values.</h2>
+        </div>
+        <div class="about-grid">
+          <article class="surface reveal">
+            <h3>Story</h3>
+            <p>
+              My core focus is building high-quality software where performance, usability, and maintainability meet.
+              I love shipping gameplay systems in Unreal Engine and translating that rigor into modern web experiences.
+            </p>
+            <p>
+              I’m especially energized by creative coding: prototyping ideas quickly, validating assumptions, then refining
+              architecture for long-term growth.
+            </p>
+          </article>
+          <article class="surface reveal">
+            <h3>Values</h3>
+            <ul class="value-list">
+              <li><strong>Clarity:</strong> understandable architecture over cleverness.</li>
+              <li><strong>Momentum:</strong> iterative progress with measurable outcomes.</li>
+              <li><strong>Craft:</strong> premium UI polish backed by reliable engineering.</li>
+              <li><strong>Learning:</strong> continuous growth across game and web stacks.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured work</p>
+          <h2 id="work-title">Projects and services in active forge.</h2>
+        </div>
+        <div class="card-grid projects-grid">
+          <article class="project-card reveal" data-modal="projectUnreal">
+            <span class="chip">Flagship</span>
+            <h3>Unreal Engine narrative game</h3>
+            <p>Story-driven world design, gameplay systems, and performance-focused C++ mechanics.</p>
+            <div class="tag-row">
+              <span class="tag">Unreal Engine</span><span class="tag">C++</span><span class="tag">Game Systems</span>
+            </div>
+            <button class="inline-link" type="button" data-open-modal="projectUnreal">View details</button>
+          </article>
+
+          <article class="project-card reveal" data-modal="projectWeb">
+            <h3>Web tools & utilities</h3>
+            <p>Responsive JavaScript products and utility interfaces with clean architecture and practical UX.</p>
+            <div class="tag-row">
+              <span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">Tooling UX</span>
+            </div>
+            <button class="inline-link" type="button" data-open-modal="projectWeb">View details</button>
+          </article>
+
+          <article class="project-card reveal" data-modal="projectCreative">
+            <h3>Creative coding experiments</h3>
+            <p>Rapid prototypes at the intersection of gameplay mechanics, UI systems, and interactive storytelling.</p>
+            <div class="tag-row">
+              <span class="tag">Prototyping</span><span class="tag">C++</span><span class="tag">UX Systems</span>
+            </div>
+            <button class="inline-link" type="button" data-open-modal="projectCreative">View details</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Capabilities</p>
+          <h2 id="capabilities-title">Cross-stack execution from engine to browser.</h2>
+        </div>
+        <div class="capabilities-grid">
+          <article class="surface reveal">
+            <h3>Core Languages</h3>
+            <div class="progress-list">
+              <div class="progress-item"><span>Java</span><div class="progress"><span class="progress-fill" data-progress="90"></span></div></div>
+              <div class="progress-item"><span>C++</span><div class="progress"><span class="progress-fill" data-progress="82"></span></div></div>
+              <div class="progress-item"><span>JavaScript</span><div class="progress"><span class="progress-fill" data-progress="88"></span></div></div>
+              <div class="progress-item"><span>HTML/CSS</span><div class="progress"><span class="progress-fill" data-progress="91"></span></div></div>
+            </div>
+          </article>
+          <article class="surface reveal">
+            <h3>Game Development</h3>
+            <p>Unreal Engine, Blueprints integration, gameplay systems, level-aware UX, and performance tuning.</p>
+            <div class="pill-row">
+              <span class="pill">Unreal Engine</span><span class="pill">Blueprints</span><span class="pill">Gameplay Design</span><span class="pill">System Architecture</span>
+            </div>
+          </article>
+          <article class="surface reveal">
+            <h3>Web Engineering</h3>
+            <p>Accessible UI architecture, reusable components, responsive design systems, and GitHub-native workflows.</p>
+            <div class="pill-row">
+              <span class="pill">Responsive UI</span><span class="pill">Vanilla JS</span><span class="pill">REST APIs</span><span class="pill">GitHub Pages</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="timeline" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Learning arc</p>
+          <h2 id="timeline-title">Current milestones and momentum.</h2>
+        </div>
+        <ol class="timeline reveal" aria-label="Learning milestones timeline">
+          <li><h3>Advanced C++ for game development</h3><p>Deepening memory, optimization, and performance-critical patterns.</p></li>
+          <li><h3>Unreal Engine C++ + Blueprint integration</h3><p>Building maintainable architecture across scripting and systems code.</p></li>
+          <li><h3>Full-stack foundations</h3><p>Expanding Node.js/API understanding to support complete product lifecycles.</p></li>
+          <li><h3>UI/UX engineering craft</h3><p>Polishing web and in-game interfaces for clarity, accessibility, and trust.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="workbench" aria-labelledby="workbench-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Workbench preview</p>
+          <h2 id="workbench-title">Product/admin interface concept (static preview).</h2>
+        </div>
+        <div class="workbench reveal" role="img" aria-label="Static dashboard concept with project metrics and activity list">
+          <div class="workbench-sidebar">
+            <span class="workbench-dot"></span><span class="workbench-dot"></span><span class="workbench-dot"></span>
+            <p>Forge Console</p>
+            <ul>
+              <li class="active">Overview</li><li>Projects</li><li>Milestones</li><li>Messages</li><li>Access</li>
+            </ul>
+          </div>
+          <div class="workbench-main">
+            <div class="workbench-stats">
+              <article><strong class="counter" data-target="24" data-suffix="">0</strong><span>Open tasks</span></article>
+              <article><strong class="counter" data-target="7" data-suffix="">0</strong><span>Active builds</span></article>
+              <article><strong class="counter" data-target="96" data-suffix="%">0</strong><span>Sprint confidence</span></article>
+            </div>
+            <div class="workbench-panels">
+              <article><h3>Recent activity</h3><p>Gameplay prototype iteration complete.</p><p>Portfolio UI system refined.</p><p>Collaboration request queued.</p></article>
+              <article>
+                <h3>Access status</h3>
+                <p>This is a static visual preview. Secure auth/admin requires backend services.</p>
+                <a href="#access-note" class="inline-link">Read limitation note</a>
+              </article>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="skill-group">
-          <h3 class="skill-group-title">
-            <span class="skill-group-icon">🛠</span> Tools &amp; Technologies
-          </h3>
-          <div class="skill-pills">
-            <span class="pill">Git</span>
-            <span class="pill">GitHub</span>
-            <span class="pill">VS Code</span>
-            <span class="pill">Node.js</span>
-            <span class="pill">Bootstrap</span>
-            <span class="pill">REST APIs</span>
-          </div>
+    <section class="section section-alt" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Collaboration modes</p>
+          <h2 id="services-title">Choose how we build together.</h2>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <div class="billing-toggle reveal" role="group" aria-label="Collaboration engagement mode">
+          <button type="button" class="toggle-btn is-active" data-mode="sprint" aria-pressed="true">Sprint focus</button>
+          <button type="button" class="toggle-btn" data-mode="ongoing" aria-pressed="false">Ongoing partnership</button>
+        </div>
 
-  <!-- Currently Learning Section -->
-  <section class="section section-alt" id="learning">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// learning</span>
-        <h2 class="section-title">Currently Learning</h2>
-      </div>
-      <div class="learning-grid">
-        <div class="learning-card">
-          <div class="learning-icon">🧠</div>
-          <h3>Advanced C++ for Game Dev</h3>
-          <p>Deep diving into memory management, optimization techniques, and performance-critical programming patterns for game systems.</p>
-        </div>
-        <div class="learning-card">
-          <div class="learning-icon">⚙️</div>
-          <h3>Unreal Engine C++ Integration</h3>
-          <p>Mastering the blend of Unreal C++ and Blueprints for robust, maintainable game architecture and gameplay feature development.</p>
-        </div>
-        <div class="learning-card">
-          <div class="learning-icon">🖥️</div>
-          <h3>Full-Stack Development</h3>
-          <p>Expanding backend skills with Node.js, API design, and server-side architecture to complement my frontend expertise.</p>
-        </div>
-        <div class="learning-card">
-          <div class="learning-icon">🎨</div>
-          <h3>UI/UX Engineering</h3>
-          <p>Studying design principles and engineering practices for both web interfaces and in-game UI systems.</p>
+        <div class="pricing-grid card-grid reveal">
+          <article class="tier" data-sprint="Prototype sprints" data-ongoing="Continuous iteration">
+            <h3>Build</h3>
+            <p class="tier-price" data-sprint="2-4 week burst" data-ongoing="Monthly cadence">2-4 week burst</p>
+            <p>Rapid prototyping for gameplay features or web tools.</p>
+          </article>
+          <article class="tier featured" data-sprint="System hardening" data-ongoing="Core roadmap execution">
+            <h3>Refine</h3>
+            <p class="tier-price" data-sprint="Architecture pass" data-ongoing="Embedded engineering">Architecture pass</p>
+            <p>Performance, architecture cleanup, and UX polish for production confidence.</p>
+          </article>
+          <article class="tier" data-sprint="Strategic advisory" data-ongoing="Technical partner">
+            <h3>Collaborate</h3>
+            <p class="tier-price" data-sprint="Design + planning" data-ongoing="Long-term support">Design + planning</p>
+            <p>Shared roadmap, technical strategy, and implementation support.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// contact</span>
-        <h2 class="section-title">Contact &amp; Collaboration</h2>
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Common collaboration questions.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <article class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-1" id="faq-trigger-1">Do you work across game and web projects?</button>
+            </h3>
+            <div id="faq-1" class="faq-panel" role="region" aria-labelledby="faq-trigger-1"><p>Yes. I regularly apply game-systems rigor to web products and tools.</p></div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-2" id="faq-trigger-2">Can this site host secure login/admin features?</button>
+            </h3>
+            <div id="faq-2" class="faq-panel" role="region" aria-labelledby="faq-trigger-2"><p>No. GitHub Pages is static-only. Secure auth, RBAC, and admin data need backend infrastructure.</p></div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-3" id="faq-trigger-3">How should we start?</button>
+            </h3>
+            <div id="faq-3" class="faq-panel" role="region" aria-labelledby="faq-trigger-3"><p>Use the contact form or GitHub profile link with your goal, timeline, and constraints.</p></div>
+          </article>
+        </div>
       </div>
-      <div class="contact-content">
-        <p class="contact-intro">
-          Open to collaboration, technical discussions, and innovative development opportunities.
-          Whether you want to build something together or just talk tech — feel free to reach out.
-        </p>
-        <div class="contact-cards">
-          <a href="https://github.com/falloutjr" class="contact-card" target="_blank" rel="noopener noreferrer">
-            <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" aria-hidden="true">
-                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-              </svg>
+    </section>
+
+    <section class="section section-alt" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let’s build something memorable.</h2>
+        </div>
+
+        <div class="contact-layout reveal">
+          <article class="surface">
+            <h3>Direct channels</h3>
+            <p>Best for collaboration inquiries, technical discussions, and project opportunities.</p>
+            <ul class="contact-list">
+              <li><a href="https://github.com/falloutjr" target="_blank" rel="noopener noreferrer">github.com/falloutjr</a></li>
+              <li>
+                <button type="button" class="inline-link" id="copyEmail" data-copy="falloutjr@users.noreply.github.com">
+                  Copy contact email
+                </button>
+              </li>
+              <li><a href="https://github.com/falloutjr/falloutjr" target="_blank" rel="noopener noreferrer">Repository source</a></li>
+            </ul>
+            <p class="access-note" id="access-note">
+              <strong>Private work / access:</strong> secure dashboards, account management, and server-side authorization are
+              intentionally not implemented in this static GitHub Pages site.
+            </p>
+          </article>
+
+          <form class="contact-form surface" id="contactForm" novalidate>
+            <h3>Project inquiry form</h3>
+            <p class="form-note">Static-safe form: on success, your email client opens with a prefilled draft.</p>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+              <p class="field-error" id="nameError"></p>
             </div>
-            <div class="contact-card-text">
-              <strong>GitHub</strong>
-              <span>@falloutjr</span>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+              <p class="field-error" id="emailError"></p>
             </div>
-          </a>
-          <a href="https://github.com/falloutjr?tab=repositories" class="contact-card" target="_blank" rel="noopener noreferrer">
-            <div class="contact-card-icon">📁</div>
-            <div class="contact-card-text">
-              <strong>Repositories</strong>
-              <span>Browse my work</span>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required />
+              <p class="field-error" id="subjectError"></p>
             </div>
-          </a>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <p class="field-error" id="messageError"></p>
+            </div>
+            <button class="btn btn-primary" type="submit" id="submitButton">Send inquiry</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
         </div>
-        <blockquote class="contact-quote">
-          "Focused on building high-quality systems, immersive experiences, and innovative solutions."
-        </blockquote>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">&lt;FalloutJr /&gt;</span>
-        <p class="footer-text">Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
-        <a href="https://github.com/falloutjr/falloutjr" class="footer-link" target="_blank" rel="noopener noreferrer">
-          View Source
-        </a>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>&copy; <span id="year"></span> FalloutJr · Built with HTML, CSS, and JavaScript on GitHub Pages.</p>
+      <a href="#home" class="inline-link">Back to top</a>
     </div>
   </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-content" role="document" tabindex="-1">
+      <button type="button" class="modal-close" aria-label="Close project details" data-close-modal="true">×</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalBody"></p>
+      <a id="modalLink" href="https://github.com/falloutjr?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View repositories</a>
+    </div>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/main.js"></script>
 </body>
