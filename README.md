@@ -32,6 +32,7 @@ The application requires its server. Opening `index.html` directly or publishing
 | `MAIL_API_URL` | HTTPS transactional email endpoint. |
 | `MAIL_API_TOKEN` | Bearer token for that email endpoint; store as a runtime secret. |
 | `MAIL_FROM` | Verified sender accepted by the configured email service. |
+| `ADMIN_BOOTSTRAP_EMAIL`, `ADMIN_BOOTSTRAP_PASSWORD_HASH`, `ADMIN_BOOTSTRAP_EXPIRES` | Optional one-time Worker administrator provisioning. Configure all three only in trusted hosting secrets; leave blank otherwise. See below. |
 
 `.env.example` contains placeholders only. Use a unique password of at least **12 characters** and at most **72 UTF-8 bytes**. Never commit `.env`, account links, database files, or actual secrets.
 
@@ -136,7 +137,9 @@ HTTPS is required for production session cookies. Match `APP_ORIGIN` to the publ
 
 ### Cloudflare Worker / Sites
 
-The Worker entry uses the same API and permission policy with a D1 adapter. Build the source with `npm run build`, bind the D1 database as `DB`, and apply **all** checked-in SQL migrations in filename order before serving requests. Local startup records applied migrations in `_local_migrations`; hosted D1 migrations are managed by the deployment platform.
+The Worker entry uses the same API and permission policy with a D1 adapter. Build the source with `npm run build` and bind the D1 database as `DB`. Sites applies the generated `drizzle/` migrations using `drizzle/meta/_journal.json` before serving the Worker. Include the entire `drizzle/` directory at the deployment archive root; plain SQL under `migrations/` alone is not a Sites migration artifact. Local Node startup applies the legacy `migrations/` sequence and records versions in `_local_migrations`. These two migration histories target separate databases and must not both be applied to the same database.
+
+The checked-in `db/schema.ts` represents the shared final schema. Run `npm run db:generate` after hosted schema changes and commit generated SQL, snapshots, and journal entries. Applied hosted migrations are immutable; append new migrations. The hosted baseline starts with an empty database and contains schema only. It explicitly disallows null primary keys, matching application IDs. For a standalone Wrangler deployment, apply generated `drizzle/*.sql` in journal order to its empty D1 database before serving requests.
 
 The build produces:
 
@@ -146,9 +149,13 @@ dist/
 ├── server/
 │   ├── index.js            # Bundled Worker entry
 │   └── wrangler.json       # Generated deployment configuration
-├── migrations/            # Schema migrations
+├── migrations/            # Local Node schema history
+├── db/schema.ts           # Typed hosted schema definition
+├── drizzle/               # Hosted SQL, snapshots, and migration journal
 └── .openai/hosting.json    # Sites identity and storage declarations
 ```
+
+The Sites deployment archive also includes root `.openai/hosting.json` and the complete root `drizzle/` directory, including `meta/_journal.json`. Keep that migration journal with its generated SQL.
 
 Deploy the bundled Worker together with its asset directory and hosting metadata; the static asset binding is `ASSETS`. Keep `run_worker_first` enabled so protected page requests always reach server authorization. The generated D1 database ID is a placeholder for platform binding; replace it with the real database ID for a standalone Wrangler deployment. Never treat the placeholder as a provisioned database.
 
@@ -156,7 +163,30 @@ The checked-in `.openai/hosting.json` identifies the selected Sites project. Pre
 
 The intended Site origin is `https://falloutjr-studio.ddrahosjr.chatgpt.site`; a configured origin is not evidence of successful publication. Set the actual deployed origin as `APP_ORIGIN` and validate the deployed version. Sites audience restrictions and the application’s account roles are independent access layers.
 
-### Provision the first production administrator
+### One-time Worker administrator bootstrap
+
+A trusted deployment owner can provision the first production administrator without enabling the development seed. Configure **all three** hosting secrets:
+
+- `ADMIN_BOOTSTRAP_EMAIL`: a new administrator email address.
+- `ADMIN_BOOTSTRAP_PASSWORD_HASH`: a bcrypt hash with cost 12–15, generated from a unique 12+ character password (maximum 72 UTF-8 bytes).
+- `ADMIN_BOOTSTRAP_EXPIRES`: an ISO UTC timestamp ending in `Z`, no more than 24 hours in the future. A short window such as one hour is preferable.
+
+Generate the hash locally without placing the plaintext password in command history or command arguments. In Bash, from the project directory:
+
+```sh
+read -r -s -p "New administrator password: " FJ_BOOTSTRAP_PASSWORD
+printf '%s' "$FJ_BOOTSTRAP_PASSWORD" | node --input-type=module -e 'import {hashPassword} from "./server/security.mjs"; let password=""; for await (const chunk of process.stdin) password+=chunk; console.log(await hashPassword(password));'
+unset FJ_BOOTSTRAP_PASSWORD
+node -e 'console.log(new Date(Date.now()+60*60*1000).toISOString())'
+```
+
+Store the resulting hash and expiry using the hosting service’s secret controls, together with the email. Do not copy live values into `.env.example`, source, a PR, or a deployment manifest. Treat the hash as sensitive.
+
+After migrations and deployment, the first Worker request attempts provisioning. It creates a verified, active, non-development admin only if no production admin exists and the one-time `admin_bootstrap_used` marker is absent. It never overwrites an existing email address or changes an existing account’s password or role. Successful provisioning writes the marker and an audit event. Sign in with the original password, confirm `/admin` access, then **remove all three bootstrap secrets** and deploy the updated environment. The database marker prevents reuse even if configuration is accidentally retained.
+
+Leaving all three values absent is a no-op. Expired configuration is a no-op; partial, malformed, or overly long-lived configuration fails setup. This mechanism exists only in the Worker entry; standalone Node deployments can use the trusted database process below. Development-seeded accounts remain blocked in production.
+
+### Provision through a trusted database console
 
 Use a normal production account, not the development seed. Configure email delivery, register the intended owner, and complete email verification. Confirm the account’s identity in a trusted database console. With controlled database access, execute this parameterized statement using the verified account ID and email as the two bound parameters:
 

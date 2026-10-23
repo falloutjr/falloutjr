@@ -19,7 +19,9 @@ The original project was a static portfolio: `index.html`, `css/style.css`, and 
 - `server/d1.mjs`: hosted D1 adapter with the same asynchronous query interface.
 - `server/index.mjs`: local/Node HTTP entry point and permitted static assets.
 - `server/worker.mjs`: Worker entry point with D1 and asset bindings.
-- `migrations/`: schema definitions applied before requests.
+- `server/bootstrap.mjs`: optional one-time, expiring production admin provisioning from trusted hosting secrets; no public setup endpoint.
+- `migrations/`: local Node schema history applied once by the SQLite adapter.
+- `db/schema.ts` and `drizzle/`: typed hosted schema and generated D1 migration history, including the Drizzle journal required by Sites. These target a separate database from the local migration history.
 - `scripts/`: production build and explicit development-admin setup.
 - `tests/`: isolated server/security tests.
 
@@ -63,4 +65,11 @@ Local development and a standalone Node deployment use Node 24’s SQLite suppor
 
 Email is an explicit external integration. A configurable bearer-authenticated HTTP endpoint accepts `{to, from, subject, text}`. Missing mail configuration does not expose tokens through an API. Local private outbox support is development-only. A production deployment must provision its own mail provider, production administrator, durable storage, backups, and monitoring.
 
-Production build output is generated; edit source files rather than `dist/`. Public assets are under `dist/client/`; the bundled entry and deployment configuration are `dist/server/index.js` and `dist/server/wrangler.json`; SQL migrations are copied to `dist/migrations/`; Sites metadata is copied to `dist/.openai/hosting.json`. Asset routing must run through the Worker before static delivery for protected pages. Secrets and runtime state must stay out of source archives and Git. The Sites source project ID is configuration, not a credential, and should be preserved on subsequent updates.
+Sites uses generated root `drizzle/` SQL and `meta/_journal.json` for hosted migrations. Node uses native `migrations/` plus `_local_migrations`; do not apply both schema paths to one database. The deployment archive must retain root `.openai/hosting.json`, `drizzle/`, and the built `dist/` directory.
+
+Production build output is generated; edit source files rather than `dist/`. Public assets are under `dist/client/`; the bundled entry and deployment configuration are `dist/server/index.js` and `dist/server/wrangler.json`; local SQL history is copied to `dist/migrations/` and the complete hosted migration SQL/journal/snapshots are copied to `dist/drizzle/` (archive root `drizzle/`); Sites metadata is copied to `dist/.openai/hosting.json`. Asset routing must run through the Worker before static delivery for protected pages. Secrets and runtime state must stay out of source archives and Git. The Sites source project ID is configuration, not a credential, and should be preserved on subsequent updates.
+
+
+## Optional production provisioning
+
+The Worker can invoke `provisionAdmin` using a complete set of trusted `ADMIN_BOOTSTRAP_EMAIL`, `ADMIN_BOOTSTRAP_PASSWORD_HASH`, and `ADMIN_BOOTSTRAP_EXPIRES` secrets. The hash must be bcrypt cost 12–15; the ISO UTC expiry must be within 24 hours. Missing configuration does nothing, expired configuration does nothing, and invalid/partial configuration fails setup. A guarded insert creates an active verified production admin only when no production admin exists and no `admin_bootstrap_used` marker exists. Existing emails are never overwritten. Successful setup records the marker and an audit event. Remove all bootstrap secrets after the first successful administrator login. This does not enable development-seeded accounts in production.

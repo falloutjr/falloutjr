@@ -54,6 +54,7 @@ await build({
 });
 await cp(at(".openai/hosting.json"), at("dist/.openai/hosting.json"));
 await cp(at("migrations/"), at("dist/migrations/"), { recursive: true });
+await cp(at("drizzle/"), at("dist/drizzle/"), { recursive: true });
 const wrangler = {
   name: "falloutjr-studio",
   main: "index.js",
@@ -65,7 +66,7 @@ const wrangler = {
       binding: "DB",
       database_name: "falloutjr-studio-db",
       database_id: "00000000-0000-0000-0000-000000000000",
-      migrations_dir: "../migrations",
+      migrations_dir: "../drizzle",
     },
   ],
   vars: { NODE_ENV: "production" },

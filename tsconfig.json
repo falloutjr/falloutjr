@@ -12,6 +12,8 @@
     "js/**/*.js",
     "server/**/*.mjs",
     "scripts/**/*.mjs",
-    "tests/**/*.mjs"
+    "tests/**/*.mjs",
+    "db/**/*.ts",
+    "drizzle.config.ts"
   ]
 }

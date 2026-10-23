@@ -1,10 +1,14 @@
 import { createApp } from './app.mjs';
 import { d1Database } from './d1.mjs';
+import { provisionAdmin } from './bootstrap.mjs';
 
 export default {
   async fetch(request, env) {
     if (env.ENABLE_DEV_ADMIN === 'true') return new Response('Disable development account setup before production.', { status: 503 });
     if (!env.DB || !env.ASSETS) return new Response('Site storage is not configured.', { status: 503 });
+    const db = d1Database(env.DB);
+    try { await provisionAdmin(db, env); }
+    catch { return new Response('Administrator setup is unavailable. Check the hosting configuration.', {status:503,headers:{'Cache-Control':'no-store'}}); }
     const assets = async request => {
       const url = new URL(request.url);
       let pathname;
@@ -16,6 +20,6 @@ export default {
       url.pathname = '/index.html';
       return env.ASSETS.fetch(new Request(url, request));
     };
-    return createApp({ db: d1Database(env.DB), env: { ...env, NODE_ENV: 'production' }, assets })(request);
+    return createApp({ db, env: { ...env, NODE_ENV: 'production' }, assets })(request);
   },
 };
