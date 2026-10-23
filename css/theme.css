@@ -1,0 +1,87 @@
+/* The public portfolio retains its saved theme. Account and management screens stay dark. */
+.theme-toggle{width:34px;height:34px;flex-shrink:0}
+html[data-theme=light] body:not(.portal-page){--bg:#f8f7fa;--surface:#fff;--surface-raised:#efebf5;--line:#ded9e6;--text:#24202e;--muted:#655e73;--accent:#7250b7;--accent-bright:#6740ad;--green:#35704b;color-scheme:light;background:var(--bg);color:var(--text)}
+html[data-theme=light] body:not(.portal-page) .site-header{background:#f8f7faed;border-bottom-color:#e9e4ef}
+html[data-theme=light] body:not(.portal-page) :is(.desktop-nav a,.nav-login){color:#686071}
+html[data-theme=light] body:not(.portal-page) .desktop-nav a:is(:hover,[aria-current]){color:#342743}
+html[data-theme=light] body:not(.portal-page) .mobile-nav{background:#fcfbfe}
+html[data-theme=light] body:not(.portal-page) .button-primary{background:#7650bc;color:#fff}
+html[data-theme=light] body:not(.portal-page) .button-primary:hover{background:#63409f;box-shadow:0 6px 30px #7650bc20}
+html[data-theme=light] body:not(.portal-page) .button-light{background:#292332;color:#fff}
+html[data-theme=light] body:not(.portal-page) .button-light:hover{background:#453653}
+html[data-theme=light] body:not(.portal-page) .button-outline{border-color:#c5bbd1;color:#342a40}
+html[data-theme=light] body:not(.portal-page) .button-outline:hover{background:#eee8f5;border-color:#a48cba}
+html[data-theme=light] body:not(.portal-page) .icon-button{border-color:#d8cfdf;color:#4c3c5c}
+html[data-theme=light] body:not(.portal-page) .icon-button:hover{background:#eee8f5}
+html[data-theme=light] body:not(.portal-page) .availability{color:#665a72}
+html[data-theme=light] body:not(.portal-page) :is(.availability>span,.status-dot:before){background:#548364}
+html[data-theme=light] body:not(.portal-page) .hero-proof strong{color:#4f455a}
+html[data-theme=light] body:not(.portal-page) :is(.hero-proof div>span,.small-metrics div>span){color:#6a6077}
+html[data-theme=light] body:not(.portal-page) .code-monogram{border-color:#d2c6df}
+html[data-theme=light] body:not(.portal-page) .hero-orbits{border-color:#7250b711}
+html[data-theme=light] body:not(.portal-page) .hero-orbits:is(:before,:after){border-color:#7250b710}
+html[data-theme=light] body:not(.portal-page) .floating-note{background:linear-gradient(120deg,#fffffff0,#f3edf9e8);border-color:#d7cce3;box-shadow:0 12px 45px #54337b12}
+html[data-theme=light] body:not(.portal-page) .floating-note .status-dot{color:#6b5c7d}
+html[data-theme=light] body:not(.portal-page) .floating-note>span:last-child{color:#6b5c7d}
+html[data-theme=light] body:not(.portal-page) :is(.hero-bottom,.hero-bottom a>span,.art-caption,.art-caption>span){color:#6d607c}
+html[data-theme=light] body:not(.portal-page) .tech-strip{background:#efecf3;border-color:#dfd9e8}
+html[data-theme=light] body:not(.portal-page) .tech-strip .container>span{color:#73677f}
+html[data-theme=light] body:not(.portal-page) .tech-strip b{color:#625b6e}
+html[data-theme=light] body:not(.portal-page) .js-mark{background:#625b6e;color:#fff}
+html[data-theme=light] body:not(.portal-page) :is(.eyebrow,.section-index,.card-top>span:last-child){color:#746581}
+html[data-theme=light] body:not(.portal-page) :is(h2>span,.section-heading h2 span){color:#81718d}
+html[data-theme=light] body:not(.portal-page) .filter-tabs button{color:#6e617b}
+html[data-theme=light] body:not(.portal-page) .filter-tabs button[aria-pressed=true]{background:#e9dff6;color:#624096}
+html[data-theme=light] body:not(.portal-page) .filter-tabs button:hover{color:#38264b}
+html[data-theme=light] body:not(.portal-page) .filter-tabs button span{color:#756482}
+html[data-theme=light] body:not(.portal-page) :is(.work-meta,.work-meta>span:last-child){color:#73657f}
+html[data-theme=light] body:not(.portal-page) .tags span{background:#f1edf6;border-color:#ded5e8;color:#6d5e7b}
+html[data-theme=light] body:not(.portal-page) .expertise-section{background:#f0edf5;border-color:#e1dae9}
+html[data-theme=light] body:not(.portal-page) .expertise-card:hover{background:#eae3f3}
+html[data-theme=light] body:not(.portal-page) .icon-tile{background:#eae2f5;border-color:#d6c5ec}
+html[data-theme=light] body:not(.portal-page) .round-arrow{color:#745c8a}
+html[data-theme=light] body:not(.portal-page) .code-window{--text:#f1f0f4;--muted:#96969f;--accent:#baa3ff;--line:#27282f;box-shadow:0 25px 70px #37244322}
+html[data-theme=light] body:not(.portal-page) .floating-symbol{box-shadow:0 10px 35px #39224825}
+html[data-theme=light] body:not(.portal-page) .quote-section blockquote>span{color:#80708e}
+html[data-theme=light] body:not(.portal-page) .avatar-letter{background:#e9dff4}
+html[data-theme=light] body:not(.portal-page) .quote-author div>span{color:#73657f}
+html[data-theme=light] body:not(.portal-page) .cta-section{border-color:#d5c5e6;background:radial-gradient(ellipse at 75% 110%,#cab4e855,transparent 60%),linear-gradient(120deg,#efe8f8,#faf8fd)}
+html[data-theme=light] body:not(.portal-page) .cta-section h2>span{color:#82649c}
+html[data-theme=light] body:not(.portal-page) .cta-orbit,html[data-theme=light] body:not(.portal-page) .cta-orbit:is(:before,:after){border-color:#8b65ad14}
+html[data-theme=light] body:not(.portal-page) .cta-note{color:#746181}
+html[data-theme=light] body:not(.portal-page) .footer-links span{color:#42334f}
+html[data-theme=light] body:not(.portal-page) .footer-links a{color:#72637f}
+html[data-theme=light] body:not(.portal-page) .footer-links a:hover{color:#5c358d}
+html[data-theme=light] body:not(.portal-page) :is(.footer-bottom,.footer-bottom>a){color:#776584}
+html[data-theme=light] body:not(.portal-page) :is(.value-card,.developer-card,.form-card,.price-card){background:#fdfcfe;border-color:#ded6e8}
+html[data-theme=light] body:not(.portal-page) .price-card.recommended{background:linear-gradient(145deg,#ede2fa,#faf7fd);border-color:#a37acb}
+html[data-theme=light] body:not(.portal-page) .recommended-tag{color:#fff;background:#7950b6}
+html[data-theme=light] body:not(.portal-page) .timeline{border-color:#c9b6d9}
+html[data-theme=light] body:not(.portal-page) .timeline article:before{box-shadow:0 0 0 5px #efe8f7}
+html[data-theme=light] body:not(.portal-page) :is(.story-art,.service-illustration){background:#17121e;border-color:#d2c5df}
+html[data-theme=light] body:not(.portal-page) :is(.story-art>span,.service-illustration>span){color:#c6b8d5}
+html[data-theme=light] body:not(.portal-page) .check-list li{color:#65546f}
+html[data-theme=light] body:not(.portal-page) .billing-toggle{background:#eae4f0}
+html[data-theme=light] body:not(.portal-page) .billing-toggle button{color:#6e5b7b}
+html[data-theme=light] body:not(.portal-page) .billing-toggle button[aria-pressed=true]{background:#7650bc;color:#fff}
+html[data-theme=light] body:not(.portal-page) :is(.pricing-disclaimer,.price>span,.price-card small){color:#756182}
+html[data-theme=light] body:not(.portal-page) .comparison-table thead{background:#eae2f2}
+html[data-theme=light] body:not(.portal-page) .comparison-table td{color:#6d5c7a}
+html[data-theme=light] body:not(.portal-page) .faq-list summary svg{color:#846897}
+html[data-theme=light] body:not(.portal-page) :is(.contact-social small,.contact-note>.status-dot){color:#675b74}
+html[data-theme=light] body:not(.portal-page) .field label{color:#4b395b}
+html[data-theme=light] body:not(.portal-page) .field label>span{color:#81658e}
+html[data-theme=light] body:not(.portal-page) .field :is(input,textarea,select){background:#f8f5fb;border-color:#cfc1dc;color:#302039}
+html[data-theme=light] body:not(.portal-page) .field :is(input,textarea)::placeholder{color:#85748d}
+html[data-theme=light] body:not(.portal-page) .field :is(input,textarea,select):focus{outline-color:#7650bc33;border-color:#7650bc}
+html[data-theme=light] body:not(.portal-page) .field [aria-invalid=true]{border-color:#a33a54}
+html[data-theme=light] body:not(.portal-page) :is(.field-error,.error){color:#a22d49}
+html[data-theme=light] body:not(.portal-page) .success{color:#34704a}
+html[data-theme=light] body:not(.portal-page) .form-bottom p>a{color:#76508d}
+html[data-theme=light] body:not(.portal-page) .project-dialog{background:#fbf8fe;border-color:#c9b5da;box-shadow:0 30px 120px #36224255}
+html[data-theme=light] body:not(.portal-page) .project-dialog::backdrop{background:#33213f80}
+html[data-theme=light] body:not(.portal-page) .dialog-close{background:#241b30e8;color:#f7edff;border-color:#ffffff33}
+html[data-theme=light] body:not(.portal-page) .toast{background:#f8f2ff;color:#493158;border-color:#c8afd9;box-shadow:0 10px 50px #3e25402b}
+html[data-theme=light] body:not(.portal-page) .toast-error{border-color:#bc6d84}
+@media(max-width:640px){.theme-toggle{width:30px;height:30px}.nav-actions:has(.theme-toggle){gap:10px}}
+html[data-theme=light] body:not(.portal-page) .filter-tabs button[aria-pressed=true] span{color:#675174}

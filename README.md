@@ -1,115 +1,205 @@
-# FalloutJr Portfolio (GitHub Pages Static Site)
+# FalloutJr Studio
 
-A polished, dark-first **signal / forge** personal portfolio for **falloutjr** built with only:
+A responsive developer portfolio and collaboration workspace built from the existing FalloutJr HTML, CSS, and JavaScript site. It preserves the repository’s focus on Unreal Engine, C++, Java, web tools, and creative coding while adding public pages, account flows, and a server-authorized management interface.
 
-- `index.html`
-- `css/style.css`
-- `js/main.js`
+The original profile README is preserved in [docs/PROFILE.md](docs/PROFILE.md). Architecture and route details are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-No package manager, build tooling, backend, or database is required.
+## Local installation
 
-## Live Site
+Use **Node.js 24 or newer** and npm. Node’s built-in SQLite module powers local persistence; no separate database service is needed.
 
-- Portfolio: https://falloutjr.github.io/falloutjr
-- GitHub profile: https://github.com/falloutjr
-- Repository: https://github.com/falloutjr/falloutjr
-
-## Focus and Content
-
-The portfolio keeps and elevates the core profile narrative:
-
-- Software developer focused on **Unreal Engine/game systems**
-- Strong **C++** and **JavaScript/web development** experience
-- Creative coding and ongoing learning mindset
-- Open collaboration and contact pathways via GitHub
-
-## Site Architecture
-
-Single-page static portfolio with hash navigation sections:
-
-1. Home hero + metrics
-2. About (story + values)
-3. Featured work/services
-4. Capabilities with animated progress bars
-5. Learning milestones timeline
-6. Workbench/dashboard visual preview (static concept)
-7. Collaboration tiers + engagement toggle
-8. FAQ accordion
-9. Contact panel + static-safe inquiry form
-10. Footer
-
-## Interaction Features (Vanilla JS)
-
-- Mobile menu open/close (Escape + outside click)
-- Active nav link tracking with `IntersectionObserver`
-- Scroll reveal animations with graceful fallback
-- Animated counters and capability progress fills
-- FAQ accordion (keyboard and screen reader friendly)
-- Project details modal with focus return + Escape close
-- Contact form validation with inline errors and loading/success states
-- Safe static form handling via `mailto:` draft fallback (no secrets)
-- Copy-to-clipboard contact action
-- Toast notifications via live region
-- Theme toggle (light/dark) with harmless `localStorage` persistence
-
-## Accessibility and UX Notes
-
-- Semantic headings and section structure
-- Visible `:focus-visible` styles
-- Keyboard-accessible navigation, FAQ, modal, and form controls
-- `aria-expanded`, `aria-controls`, `aria-live`, and dialog attributes where needed
-- Reduced-motion support using `prefers-reduced-motion`
-- Responsive layout system with CSS custom properties + `clamp()`
-- Defensive JS guards to avoid runtime errors if elements are missing
-- Overflow-safe layout to avoid accidental horizontal scrolling
-
-## Authentication / Admin Limitation (Important)
-
-This repository is deployed on **GitHub Pages** and is static-only.
-
-That means this project intentionally does **not** implement insecure/fake:
-
-- password storage in client code
-- client-only RBAC claims
-- protected admin routes with real authorization
-- server-side session management
-- password reset/email verification flows
-- audit logs backed by persistent storage
-
-### Roadmap for Real Secure Auth/Admin
-
-To support secure auth/admin in the future, add backend infrastructure such as:
-
-1. API/backend service (Node, Go, etc.)
-2. Database for users/roles/audit data
-3. Server-side authentication + authorization checks
-4. Session/JWT management with secure rotation and expiry
-5. Password hashing and reset/email verification workflows
-6. Protected API routes for admin/user operations
-7. Logging, rate limiting, and security monitoring
-
-No real credentials or secrets are included in this repository.
-
-## Local Preview
-
-Because this is static HTML/CSS/JS, you can run a simple local preview server from the repo root:
-
-```bash
-cd /home/runner/work/falloutjr/falloutjr
-python3 -m http.server 8000
+```sh
+npm install
+cp .env.example .env
+npm run dev
 ```
 
-Then open:
+Open `http://localhost:3000`. Use the exact origin configured in `APP_ORIGIN`; mutation requests from other origins are rejected. The server creates `.data/falloutjr.sqlite` and applies the checked-in schema when it starts. Keep the database and `.env` private and outside source control.
 
-- http://localhost:8000
+The application requires its server. Opening `index.html` directly or publishing only static files to GitHub Pages cannot provide accounts, contact submission, protected routes, or administration.
 
-## Deployment
+## Environment variables
 
-Push changes to the default GitHub Pages source branch for this repository. GitHub Pages serves the static files directly.
+| Variable | Purpose |
+| --- | --- |
+| `NODE_ENV` | `development` locally; `production` for a production server. |
+| `PORT`, `HOST` | Node server port and bind address; defaults `3000` and `0.0.0.0`. |
+| `APP_ORIGIN` | Canonical browser origin, including scheme and port. Used for mutation origin checks and account email links. |
+| `DATABASE_PATH` | Local SQLite file; default `.data/falloutjr.sqlite`. Unused by a D1-backed Worker. |
+| `ENABLE_DEV_ADMIN` | Explicit local seed opt-in; defaults `false`. Production startup rejects `true`. |
+| `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `ADMIN_NAME` | Inputs to the explicit development-admin seed command. They are not runtime fallback credentials. |
+| `DEV_MAIL_OUTBOX`, `DEV_MAIL_OUTBOX_PATH` | Opt-in, local-only account mail outbox and its private path (default `.data/mail-outbox.ndjson`). Keep output disabled in production. |
+| `MAIL_API_URL` | HTTPS transactional email endpoint. |
+| `MAIL_API_TOKEN` | Bearer token for that email endpoint; store as a runtime secret. |
+| `MAIL_FROM` | Verified sender accepted by the configured email service. |
+| `ADMIN_BOOTSTRAP_EMAIL`, `ADMIN_BOOTSTRAP_PASSWORD_HASH`, `ADMIN_BOOTSTRAP_EXPIRES` | Optional one-time Worker administrator provisioning. Configure all three only in trusted hosting secrets; leave blank otherwise. See below. |
 
-## Verification Performed
+`.env.example` contains placeholders only. Use a unique password of at least **12 characters** and at most **72 UTF-8 bytes**. Never commit `.env`, account links, database files, or actual secrets.
 
-- Static path checks (`index.html` -> `css/style.css`, `js/main.js`)
-- Manual interaction validation in code for navigation, modal, FAQ, form states, and reduced motion handling
-- No new dependencies introduced
-- No secrets committed
+## Development administrator
+
+1. Copy `.env.example` to `.env`.
+2. Set `ENABLE_DEV_ADMIN=true` locally and replace `ADMIN_EMAIL` and `ADMIN_PASSWORD` with local test values. The seed rejects the example password.
+3. Run `npm run seed:admin`.
+4. Start the application and sign in at `/login` with those values.
+5. Visit `/admin` to manage users, content, settings, and audit records.
+
+The seed marks its account as a development account in the database. Production login and session checks reject that account even if its password is changed or the seed environment values are removed. The seed is an explicit development operation and refuses to run in production. It requires `ENABLE_DEV_ADMIN=true`; production startup rejects that setting. Re-running the seed updates the configured development account, restores its admin access, and revokes its sessions. To rotate the development password from the CLI, change `ADMIN_PASSWORD` in `.env` and run the seed again. Passwords are stored as bcrypt hashes with cost 12. Application startup never creates an administrator automatically.
+
+To change a password while signed in, open `/settings`, provide the current password, and enter a new one. Password changes invalidate existing sessions and rotate the current session. An emailed recovery link can also change a password when email delivery is configured; completing recovery invalidates all sessions.
+
+Use `/admin/users` to assign `user`, `moderator`, or `admin` roles and to suspend accounts. Role/status changes invalidate that user’s sessions. The server prevents an administrator from removing their own administrator access and prevents removal of the final active administrator.
+
+To disable or remove the local development account, keep the local seed opt-in enabled and run:
+
+```sh
+npm run seed:admin -- --disable
+# Or remove the account; authored content must first be reassigned or deleted.
+npm run seed:admin -- --remove
+```
+
+Both operations revoke sessions. Set `ENABLE_DEV_ADMIN=false` after cleanup.
+
+Before production, use a separate production database, omit development-admin variables, leave local mail output disabled, and do not run the development seed. If a development database was reused, first provision a legitimate administrator, then suspend the development account through `/admin/users` and remove its environment values. Merely removing an environment variable does not remove an already-created database account.
+
+## Roles and permissions
+
+| Visitor | Access |
+| --- | --- |
+| Guest | Public pages and account entry/recovery forms. No protected pages or private APIs. |
+| User | Own dashboard, profile, account preferences, password changes, and notifications. |
+| Moderator | User capabilities, content management, and content-related audit events only. |
+| Admin | Complete overview, user and role management, analytics, content, system settings, contact submissions, and audit records. |
+
+Role definitions are fixed in server code. The permissions page displays the policy; role assignment happens in user management. Clients cannot grant themselves a role during registration or profile updates. Unauthorized API calls receive `401` or `403`. Protected page requests redirect to `/login` or `/unauthorized` as appropriate. The browser interface is an additional convenience layer; server checks remain authoritative.
+
+Email verification confirms control of an address. An unverified account can use its ordinary workspace; verification does not grant management privileges.
+
+## Email delivery
+
+Registration and password recovery create short-lived, single-use links. Verification links expire after 24 hours; password reset links expire after 30 minutes. The database stores only token hashes.
+
+For production, configure `MAIL_API_URL`, `MAIL_API_TOKEN`, `MAIL_FROM`, and the correct `APP_ORIGIN`. The endpoint must accept:
+
+```http
+POST /your-email-endpoint
+Authorization: Bearer <runtime secret>
+Content-Type: application/json
+```
+
+```json
+{
+  "to": "recipient@example.com",
+  "from": "configured sender",
+  "subject": "Account email subject",
+  "text": "Plain-text message containing a single-use link"
+}
+```
+
+A successful HTTP status means the endpoint accepted delivery. Use an adapter if your chosen mail provider requires a different payload. The application does not include a provider account or silently claim to have delivered mail without configuration. Recovery responses deliberately do not reveal whether an email address is registered. Missing or failing email delivery must be resolved before relying on recovery in production.
+
+Local development can opt in to `DEV_MAIL_OUTBOX=true` to inspect account links in `.data/mail-outbox.ndjson` (or `DEV_MAIL_OUTBOX_PATH`) without sending mail. Treat the output as private account credentials and delete it after testing. It must never be served as a static asset or enabled on a production host.
+
+Contact submissions are saved in the database for administrator review. They are not automatically forwarded by email.
+
+## Commands and checks
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Run the local Node server, reading `.env` when present. |
+| `npm start` | Run the Node server. Set production environment values for a production host. |
+| `npm run seed:admin` | Explicitly create/configure a local development administrator. |
+| `npm run lint` | ESLint source checks. |
+| `npm run typecheck` | TypeScript compiler/module validation for the JavaScript project. |
+| `npm test` | Node test suite, including authentication and server authorization. |
+| `npm run test:browser` | Six Playwright integration tests for forms, navigation, responsive layouts, and accessibility. |
+| `npm run build` | Build the production deployment artifact. |
+| `npm run check` | Run lint, compiler validation, tests, and the production build in order. |
+
+For browser tests, install the test browser with `npx playwright install chromium`, then run `npm run test:browser`. To use an existing Chromium installation, set `BROWSER_EXECUTABLE_PATH` for the command (for example, `BROWSER_EXECUTABLE_PATH=/usr/bin/chromium npm run test:browser`). Browser tests start their own server on port 3100 and reset only the dedicated `work/browser-test.sqlite` fixture. They require local socket access.
+
+The build also runs the bundled Worker against a fresh SQL fixture to verify assets, the D1 interface, bcrypt, sessions, role enforcement, and logout.
+
+The project remains JavaScript; compiler validation does not imply comprehensive static typing. Test data is isolated from the normal development database.
+
+## Production deployment
+
+### Node server
+
+1. Install Node 24+ and dependencies with `npm ci`.
+2. Run `npm run check` in the build environment.
+3. Configure `NODE_ENV=production`, the HTTPS `APP_ORIGIN`, a writable persistent `DATABASE_PATH`, and the transactional email settings.
+4. Run `npm start` behind an HTTPS reverse proxy/process supervisor. Keep SQLite on durable local storage; back it up consistently, including WAL handling. Do not put the database on an ephemeral build filesystem.
+5. Provision a production administrator through the controlled process below; do not enable the development seed in production.
+6. Verify login, logout, email delivery, recovery, role enforcement, and database backups against the actual host.
+
+HTTPS is required for production session cookies. Match `APP_ORIGIN` to the public origin. Avoid a multi-instance Node deployment sharing a SQLite file; use the D1 Worker deployment or another designed database adapter for that topology.
+
+### Cloudflare Worker / Sites
+
+The Worker entry uses the same API and permission policy with a D1 adapter. Build the source with `npm run build` and bind the D1 database as `DB`. Sites applies the generated `drizzle/` migrations using `drizzle/meta/_journal.json` before serving the Worker. Include the entire `drizzle/` directory at the deployment archive root; plain SQL under `migrations/` alone is not a Sites migration artifact. Local Node startup applies the legacy `migrations/` sequence and records versions in `_local_migrations`. These two migration histories target separate databases and must not both be applied to the same database.
+
+The checked-in `db/schema.ts` represents the shared final schema. Run `npm run db:generate` after hosted schema changes and commit generated SQL, snapshots, and journal entries. Applied hosted migrations are immutable; append new migrations. The hosted baseline starts with an empty database and contains schema only. It explicitly disallows null primary keys, matching application IDs. For a standalone Wrangler deployment, apply generated `drizzle/*.sql` in journal order to its empty D1 database before serving requests.
+
+The build produces:
+
+```text
+dist/
+├── client/                 # index.html, assets, CSS, browser JavaScript
+├── server/
+│   ├── index.js            # Bundled Worker entry
+│   └── wrangler.json       # Generated deployment configuration
+├── migrations/            # Local Node schema history
+├── db/schema.ts           # Typed hosted schema definition
+├── drizzle/               # Hosted SQL, snapshots, and migration journal
+└── .openai/hosting.json    # Sites identity and storage declarations
+```
+
+The Sites deployment archive also includes root `.openai/hosting.json` and the complete root `drizzle/` directory, including `meta/_journal.json`. Keep that migration journal with its generated SQL.
+
+Deploy the bundled Worker together with its asset directory and hosting metadata; the static asset binding is `ASSETS`. Keep `run_worker_first` enabled so protected page requests always reach server authorization. The generated D1 database ID is a placeholder for platform binding; replace it with the real database ID for a standalone Wrangler deployment. Never treat the placeholder as a provisioned database.
+
+The checked-in `.openai/hosting.json` identifies the selected Sites project. Preserve its `project_id` when updating the deployment. Local SQLite and hosted D1 are separate databases; development data and accounts are not copied to production. Configure mail secrets in the hosting service, not in the hosting manifest or source files.
+
+The intended Site origin is `https://falloutjr-studio.ddrahosjr.chatgpt.site`; a configured origin is not evidence of successful publication. Set the actual deployed origin as `APP_ORIGIN` and validate the deployed version. Sites audience restrictions and the application’s account roles are independent access layers.
+
+### One-time Worker administrator bootstrap
+
+A trusted deployment owner can provision the first production administrator without enabling the development seed. Configure **all three** hosting secrets:
+
+- `ADMIN_BOOTSTRAP_EMAIL`: a new administrator email address.
+- `ADMIN_BOOTSTRAP_PASSWORD_HASH`: a bcrypt hash with cost 12–15, generated from a unique 12+ character password (maximum 72 UTF-8 bytes).
+- `ADMIN_BOOTSTRAP_EXPIRES`: an ISO UTC timestamp ending in `Z`, no more than 24 hours in the future. A short window such as one hour is preferable.
+
+Generate the hash locally without placing the plaintext password in command history or command arguments. In Bash, from the project directory:
+
+```sh
+read -r -s -p "New administrator password: " FJ_BOOTSTRAP_PASSWORD
+printf '%s' "$FJ_BOOTSTRAP_PASSWORD" | node --input-type=module -e 'import {hashPassword} from "./server/security.mjs"; let password=""; for await (const chunk of process.stdin) password+=chunk; console.log(await hashPassword(password));'
+unset FJ_BOOTSTRAP_PASSWORD
+node -e 'console.log(new Date(Date.now()+60*60*1000).toISOString())'
+```
+
+Store the resulting hash and expiry using the hosting service’s secret controls, together with the email. Do not copy live values into `.env.example`, source, a PR, or a deployment manifest. Treat the hash as sensitive.
+
+After migrations and deployment, the first Worker request attempts provisioning. It creates a verified, active, non-development admin only if no production admin exists and the one-time `admin_bootstrap_used` marker is absent. It never overwrites an existing email address or changes an existing account’s password or role. Successful provisioning writes the marker and an audit event. Sign in with the original password, confirm `/admin` access, then **remove all three bootstrap secrets** and deploy the updated environment. The database marker prevents reuse even if configuration is accidentally retained.
+
+Leaving all three values absent is a no-op. Expired configuration is a no-op; partial, malformed, or overly long-lived configuration fails setup. This mechanism exists only in the Worker entry; standalone Node deployments can use the trusted database process below. Development-seeded accounts remain blocked in production.
+
+### Provision through a trusted database console
+
+Use a normal production account, not the development seed. Configure email delivery, register the intended owner, and complete email verification. Confirm the account’s identity in a trusted database console. With controlled database access, execute this parameterized statement using the verified account ID and email as the two bound parameters:
+
+```sql
+UPDATE users
+SET role = 'admin'
+WHERE id = ? AND email = ? AND verified = 1 AND is_development = 0;
+```
+
+Verify exactly one row changed, then revoke that account’s prior sessions with `DELETE FROM sessions WHERE user_id = ?` using the same bound ID. Sign in again and confirm `/admin` access. Record this operational access change. Subsequent role assignments should use the audited admin UI. A development-marked account cannot be promoted into a usable production account by this statement.
+
+## Design, accessibility, and content
+
+The interface uses reusable CSS tokens, responsive layouts, visible keyboard focus, labelled forms, status feedback, and reduced-motion support. The public portfolio preserves its light/dark theme control and saved `themePreference`; account and management screens remain dark. SVG artwork stays sharp at 4K without large raster downloads. Public project artwork and dashboard mockups are illustrations, not screenshots or claims of shipped products. Pricing is an engagement guide rather than a checkout or payment system. No invented clients or testimonials are presented as evidence.
+
+Review keyboard navigation, narrow mobile screens, touch controls, and contrast whenever content or theme tokens change. Keep runtime dependencies and the Node version current. Before production, confirm backups, operational admin ownership, email delivery, rate limiting behind your chosen proxy, and the deployment’s access policy.
